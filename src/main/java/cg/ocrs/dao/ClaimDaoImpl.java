@@ -24,7 +24,6 @@ public class ClaimDaoImpl implements IClaimDao {
 		}
 	}
 	
-	
 	public Claim getDetailedClaimReportView(int claimNumber) throws SQLException {
 		
 		psmt = con.prepareStatement("select * from claim where claimNumber=?");
@@ -65,6 +64,7 @@ public class ClaimDaoImpl implements IClaimDao {
 		
 		return claim;
 	}
+	
 	
 
 
