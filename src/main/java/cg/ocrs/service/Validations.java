@@ -13,6 +13,7 @@ public class Validations {
 		String accZip = String.valueOf(accidentZip);
 		
 		
+		
 		Pattern pattern = Pattern.compile(zipPattern); 
 		
 		if (accZip == null) {
