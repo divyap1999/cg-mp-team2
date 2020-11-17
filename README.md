@@ -9,3 +9,4 @@ create table claim(claimNumber number PRIMARY KEY,
 	              accidentZip number, 
 	              claimType varchar2(30), 
 	               policyNumber number );
+create table policyDetails(PolicyNumber number ,QuestionId varchar2(15),Answer varchar2(30));
