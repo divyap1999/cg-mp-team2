@@ -60,6 +60,37 @@ public class ClaimDaoImpl implements IClaimDao {
 		psmt.setInt(5, claim.getAccidentZip());
 		psmt.setString(6, claim.getClaimType());
 
+		
+		psmt.executeUpdate();
+		
+		return claim;
+	}
+
+	public boolean deleteClaim(int claimNumber) throws SQLException {
+
+		Claim claim = getDetailedClaimReportView(claimNumber);
+		psmt = con.prepareStatement("delete from claim where claim=?");
+		psmt.setInt(1, claimNumber);
+		int isdeleted = psmt.executeUpdate();
+		
+		return isdeleted>0;
+		
+	}
+
+	public Claim updateClaim(Claim claim) throws SQLException {
+	
+		Claim updateclaim = getDetailedClaimReportView(claim.getClaimNumber());
+		psmt = con.prepareStatement("update claim set claimNumber=?, claimReason=?, accidentLoactionStreet=?, accidentCity=?, accidentState=?, accidentZip=?, claimType=?, policyNumber=?");
+		
+		
+		psmt.setString(1, claim.getClaimReason());
+		psmt.setString(2, claim.getAccidentLoactionStreet());
+		psmt.setString(3, claim.getAccidentCity());
+		psmt.setString(4, claim.getAccidentState());
+		psmt.setInt(5, claim.getAccidentZip());
+		psmt.setString(6, claim.getClaimType());
+
+		
 		psmt.executeUpdate();
 		
 		return claim;

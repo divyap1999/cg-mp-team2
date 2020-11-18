@@ -10,4 +10,7 @@ public interface IClaimDao {
 	
 	public Claim getDetailedClaimReportView(int claimNumber) throws SQLException;
 	
+	public boolean deleteClaim(int claimNumber) throws SQLException;
+	
+	public Claim updateClaim(Claim claim) throws SQLException;
 }
