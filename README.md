@@ -9,5 +9,16 @@ create table claim(claimNumber number PRIMARY KEY,
 	              accidentZip number, 
 	              claimType varchar2(30), 
 	               policyNumber number );
+		      
+		      
+		      create table Accounts(AccountNumber number(10) primary key,
+InsuredName varchar2(30) not null,
+InsuredStreet varchar2(40),
+InsuredCity varchar2(15) not null,
+InsuredState varchar2(15) not null,
+InsuredZip number(5) not null,
+BusinessSegment varchar2(30),
+UserName varchar2(20),
+constraint User_fk foreign key(UserName) references UserRole(UserName));
 
 
