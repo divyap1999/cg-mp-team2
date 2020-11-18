@@ -12,7 +12,7 @@ public abstract class UserServiceImpl implements IUser{
 	IUserRepo repo;
 	
 	public UserServiceImpl() throws SQLException {
-		IUserRepo repo;//=new UserRepoImpl();
+		IUserRepo repo=new UserRepoImpl();
 	}
 	
 	
