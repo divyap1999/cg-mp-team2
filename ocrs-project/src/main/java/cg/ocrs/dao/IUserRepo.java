@@ -6,5 +6,9 @@ import cg.ocrs.model.UserRole;
 
 public interface IUserRepo {
 
-	UserRole addUser(UserRole user) throws SQLException;
+	public UserRole addUser(UserRole user) throws SQLException;
+	
+	public UserRole getUserByUserName(String userName) throws SQLException;
+	
+	public boolean deleteUser(String userName) throws SQLException; 
 }

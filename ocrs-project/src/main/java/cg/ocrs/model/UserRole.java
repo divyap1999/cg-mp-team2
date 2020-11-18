@@ -2,23 +2,26 @@ package cg.ocrs.model;
 
 public class UserRole {
 
-	private String username;
+	private String userName;
 	private String password;
 	private String rolecode;
 	
 	public UserRole(String username, String password, String rolecode) {
 		super();
-		this.username = username;
+		this.userName = userName;
 		this.password = password;
 		this.rolecode = rolecode;
 	}
 
-	public String getUsername() {
-		return username;
+	public UserRole() {
+		}
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getPassword() {
@@ -39,7 +42,7 @@ public class UserRole {
 
 	@Override
 	public String toString() {
-		return "UserRole [username=" + username + ", password=" + password + ", rolecode=" + rolecode + "]";
+		return "UserRole [userName=" + userName + ", password=" + password + ", rolecode=" + rolecode + "]";
 	}
 	
 	
