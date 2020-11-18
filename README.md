@@ -12,6 +12,22 @@ create table claim(claimNumber number PRIMARY KEY,
 		      
 		    
 insert into claim values(100, 'Damage', 'St-12' ,'Hyderabad', 'Telangana', 500017, 'Restaurant', 200);
+insert into claim values(101, 'Theft', 'St-10' ,'Hyderabad', 'Telangana', 500017, "Business Auto", 201);
+insert into claim values(102, 'Repairs', 'St-1' ,'Chennai', 'TamilNadu', 600014, 'Apartment', 202);
+insert into claim values(103, 'Theft', 'St-1' ,'Chennai', 'Tamilnadu', 600015, 'General-Merchant', 203);
+insert into claim values(104, 'Theft', 'St-10' ,'Secunderabad', 'Telangana', 500019, 'General-Merchant', 203);
+insert into claim values(105, 'Theft', 'St-10' ,'Visakhapatnam', 'AndhraPradesh', 500020, 'General-Merchant', 203);
+insert into claim values(106, 'Theft', 'St-10' ,'Vijayawada', 'AndhraPradesh', 500120, 'General-Merchant', 203);
+insert into claim values(107, 'Theft', 'St-11' ,'Visakhapatnam', 'AndhraPradesh', 500020, 'Apartment', 202);
+insert into claim values(108, 'Theft', 'St-12' ,'Vijayawada', 'AndhraPradesh', 500020, 'Apartment', 202);
+insert into claim values(109, 'Repairs', 'St-14' ,'Nellore', 'AndhraPradesh', 524001, 'Apartment', 202);
+insert into claim values(110, 'Repairs', 'St-2' ,'Guntur', 'AndhraPradesh', 522001, 'Apartment', 202);
+insert into claim values(111, 'Repairs', 'St-6' ,'Guntur', 'AndhraPradesh', 522001, 'Business Auto', 201);
+insert into claim values(112, 'Theft', 'St-6' ,'Guntur', 'AndhraPradesh', 522001, 'Business Auto', 201);
+insert into claim values(113, 'Theft', 'St-6' ,'Bangalore', 'Karnataka', 530068, 'Business Auto', 201);
+insert into claim values(114, 'Repairs', 'St-26' ,'Bangalore', 'Karnataka', 530068, 'Restaurant', 200);
+insert into claim values(115, 'Repairs', 'St-26' ,'Mumbai', 'Maharastra', 400011, 'Apartment', 202);
+insert into claim values(116, 'Repairs', 'St-26' ,'Mumbai', 'Maharastra', 400011, 'General-Merchant', 203);
 
 		      
 		      
@@ -30,6 +46,9 @@ UserName varchar2(20),
 constraint User_fk foreign key(UserName) references UserRole(UserName));
 
 
+
+
+------------------------------------------------------------------------------------------------------------------------------------
 
 create table login_page(user_name varchar(20) constraint user_name primary key,password varchar(12),role_code varchar(20));
 
