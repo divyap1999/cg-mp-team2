@@ -11,8 +11,10 @@ create table claim(claimNumber number PRIMARY KEY,
 	               policyNumber number );
 		      
 		      
-		      create table Accounts(AccountNumber number(10) primary key,
-InsuredName varchar2(30) not null,
+		      
+		      
+		      
+create table Accounts(AccountNumber number(10) primary key,InsuredName varchar2(30) not null,
 InsuredStreet varchar2(40),
 InsuredCity varchar2(15) not null,
 InsuredState varchar2(15) not null,
