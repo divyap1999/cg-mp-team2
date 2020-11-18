@@ -13,6 +13,7 @@ public abstract class UserRepoImpl implements IUserRepo{
 	PreparedStatement psmt;
 	ResultSet userResultSet;
 	Connection connection;
+	private Connection con;
 
 	public UserRepoImpl() throws SQLException {
 		connection=ConnectionUtil.createConnection();
