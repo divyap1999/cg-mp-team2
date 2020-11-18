@@ -10,10 +10,16 @@ create table claim(claimNumber number PRIMARY KEY,
 	              claimType varchar2(30), 
 	               policyNumber number );
 		      
+		    
+insert into claim values(100, 'Damage', 'St-12' ,'Hyderabad', 'Telangana', 500017, 'Restaurant', 200);
+
 		      
 		      
 		      
 		      
+-------------------------------------------------------------------------------------------------------------------------------- 
+
+
 create table Accounts(AccountNumber number(10) primary key,InsuredName varchar2(30) not null,
 InsuredStreet varchar2(40),
 InsuredCity varchar2(15) not null,
