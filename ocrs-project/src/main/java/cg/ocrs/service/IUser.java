@@ -1,5 +1,10 @@
 package cg.ocrs.service;
 
-public class IUser {
+import java.sql.SQLException;
 
+import cg.ocrs.model.UserRole;
+
+public interface IUser {
+
+	public UserRole addUser(UserRole user) throws SQLException;
 }

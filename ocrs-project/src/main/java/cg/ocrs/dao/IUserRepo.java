@@ -1,5 +1,10 @@
 package cg.ocrs.dao;
 
-public class IUserRepo {
+import java.sql.SQLException;
 
+import cg.ocrs.model.UserRole;
+
+public interface IUserRepo {
+
+	UserRole addUser(UserRole user) throws SQLException;
 }

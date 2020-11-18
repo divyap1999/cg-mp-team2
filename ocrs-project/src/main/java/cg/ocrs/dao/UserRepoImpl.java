@@ -1,5 +1,28 @@
 package cg.ocrs.dao;
 
-public class UserRepoImpl {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import cg.ocrs.model.UserRole;
+
+public class UserRepoImpl implements IUserRepo{
+	PreparedStatement psmt;
+	ResultSet studentResultSet;
+	Connection connection;
+
+	public UserRepoImpl() throws SQLException {
+		connection=ConnectionUtil.createConnection();
+	}
+
+	public UserRole addUser(UserRole user) throws SQLException {
+		psmt=connection.prepareStatement("insert into credentials values(?,?,?)");
+		psmt.setString(1, user.getUsername());
+		psmt.setString(2, user.getPassword());
+		psmt.setString(3, user.getRolecode());
+		
+		int count=psmt.executeUpdate();
+		return user;
+	}
 }
