@@ -12,9 +12,7 @@ public class Claim {
 	private int policyNumber;
 	
 	
-	public Claim() {
-		
-	}
+
 	
 	public Claim(int claimNumber, String claimReason, String accidentLoactionStreet, String accidentCity,
 			String accidentState, int accidentZip, String claimType, int policyNumber) {
@@ -27,6 +25,11 @@ public class Claim {
 		this.accidentZip = accidentZip;
 		this.claimType = claimType;
 		this.policyNumber = policyNumber;
+	}
+
+
+	public Claim() {
+		// TODO Auto-generated constructor stub
 	}
 
 

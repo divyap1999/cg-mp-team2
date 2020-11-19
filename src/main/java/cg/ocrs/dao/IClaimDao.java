@@ -13,4 +13,5 @@ public interface IClaimDao {
 	public boolean deleteClaim(int claimNumber) throws SQLException;
 	
 	public Claim updateClaim(Claim claim) throws SQLException;
+	
 }
