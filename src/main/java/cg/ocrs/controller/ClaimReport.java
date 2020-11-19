@@ -19,35 +19,31 @@ import cg.ocrs.model.Claim;
 public class ClaimReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-	IClaimDao service;
+	IClaimDao service = new ClaimDaoImpl();
 	
-	@Override
-	public void init() throws ServletException {
-		
-		service=new ClaimDaoImpl();
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+	
 		int claimNumber=Integer.parseInt(request.getParameter("claimNumber"));
 //		String claimReason=request.getParameter("claimReason");
-//		String accidentLoactionStreet=request.getParameter("accidentLocationStreet");
+//		String accidentLocationStreet=request.getParameter("accidentLocationStreet");
 //		String accidentCity = request.getParameter("accidentCity");
 //		String accidentState = request.getParameter("accidentState");
 //		int accidentZip = Integer.parseInt(request.getParameter("accidentZip"));
 //		String claimType = request.getParameter("claimType");
 //		int policyNumber = Integer.parseInt(request.getParameter("policyNumber"));
 		
-		
-		Claim claim = null;
+	
+		Claim claim = new Claim();
 		try {
 			claim = service.getDetailedClaimReportView(claimNumber);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}		
 		
 		HttpSession ssn=request.getSession();
+		
 		ssn.setAttribute("claim", claim);
 		response.sendRedirect("claim-report.jsp");
 		
