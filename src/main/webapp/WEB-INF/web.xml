@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Test</servlet-name>
+  	<display-name>Test</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.Test</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Test1</servlet-name>
+  	<display-name>Test1</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.Test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Test</servlet-name>
+  	<url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Test1</servlet-name>
+  	<url-pattern>/Test1</url-pattern>
+  </servlet-mapping>
 </web-app>
