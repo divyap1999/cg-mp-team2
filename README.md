@@ -111,3 +111,8 @@ Harshitha            Harsh@52     claim_handler
 Dinesh1              dinesh@2     insured
 Swetha               swethas@2    insured
 Mohith               mohith@6     claim_handler
+
+
+
+
+create table PolicyDetails(PolicyNo numeric(10),QuestionId varchar(15),Answer varchar(30));
