@@ -36,14 +36,14 @@ public class ClaimDaoImpl implements IClaimDao {
 		
 		Claim claim = new Claim();
 		
-//		claim.setClaimNumber(rsClaim.getInt("claimNumber"));
+		claim.setClaimNumber(rsClaim.getInt("claimNumber"));
 		claim.setClaimReason(rsClaim.getString("claimReason"));
-		claim.setAccidentLoactionStreet(rsClaim.getString("accidentLoactionStreet"));
+		claim.setAccidentLocationStreet(rsClaim.getString("accidentLocationStreet"));
 		claim.setAccidentCity(rsClaim.getString("accidentCity"));
 		claim.setAccidentState(rsClaim.getString("accidentState"));
 		claim.setAccidentZip(rsClaim.getInt("accidentZip"));
 		claim.setClaimType(rsClaim.getString("claimType"));
-//		claim.setPolicyNumber(rsClaim.getInt("policyNumber"));
+		claim.setPolicyNumber(rsClaim.getInt("policyNumber"));
 		
 		return claim;
 		
@@ -51,14 +51,15 @@ public class ClaimDaoImpl implements IClaimDao {
 
 	public Claim createClaim(Claim claim) throws SQLException {
 		
-		psmt=con.prepareStatement("insert into claim values(?,?,?,?,?,?)");
-		
-		psmt.setString(1, claim.getClaimReason());
-		psmt.setString(2, claim.getAccidentLoactionStreet());
-		psmt.setString(3, claim.getAccidentCity());
-		psmt.setString(4, claim.getAccidentState());
-		psmt.setInt(5, claim.getAccidentZip());
-		psmt.setString(6, claim.getClaimType());
+		psmt=con.prepareStatement("insert into claim values(?,?,?,?,?,?,?,?)");
+		psmt.setInt(1, claim.getClaimNumber());
+		psmt.setString(2, claim.getClaimReason());
+		psmt.setString(3, claim.getAccidentLocationStreet());
+		psmt.setString(4, claim.getAccidentCity());
+		psmt.setString(5, claim.getAccidentState());
+		psmt.setInt(6, claim.getAccidentZip());
+		psmt.setString(7, claim.getClaimType());
+		psmt.setInt(8, claim.getPolicyNumber());
 
 		
 		psmt.executeUpdate();
@@ -84,7 +85,7 @@ public class ClaimDaoImpl implements IClaimDao {
 		
 		
 		psmt.setString(1, claim.getClaimReason());
-		psmt.setString(2, claim.getAccidentLoactionStreet());
+		psmt.setString(2, claim.getAccidentLocationStreet());
 		psmt.setString(3, claim.getAccidentCity());
 		psmt.setString(4, claim.getAccidentState());
 		psmt.setInt(5, claim.getAccidentZip());

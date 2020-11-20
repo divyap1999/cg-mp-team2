@@ -24,21 +24,25 @@
 		<th>Policy Number</th>
 	</tr>
 	
+	
 <% Claim claim = (Claim)session.getAttribute("claim"); %>
 
 	<tr>
 		<td><%=claim.getClaimNumber() %></td>
 		<td><%=claim.getClaimReason() %></td>
-		<td><%= claim.getAccidentLoactionStreet() %></td>
+		<td><%= claim.getAccidentLocationStreet() %></td>
 		<td><%=claim.getAccidentCity() %></td>
 		<td><%= claim.getAccidentState() %></td>
 		<td><%= claim.getAccidentZip() %></td>
 		<td><%= claim.getClaimType() %></td>
 		<td><%= claim.getPolicyNumber() %></td>
-		<td><%=claim.getClaimType() %></td>
+		
 		
 		
 	</tr>
+	
+	
+		
 </table>
 	
 
