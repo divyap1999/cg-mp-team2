@@ -36,7 +36,7 @@
 		<td><%= claim.getAccidentZip() %></td>
 		<td><%= claim.getClaimType() %></td>
 		<td><%= claim.getPolicyNumber() %></td>
-		<td><%=claim.getClaimType() %></td>
+		
 		
 		
 	</tr>
