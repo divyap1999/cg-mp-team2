@@ -11,9 +11,10 @@
 <h1>User Login</h1>
 <table>
 <form action="login" method="post">
-<tr> <td>Login ID </td><td><input type="text" name="username"></td></tr>
-<tr> <td>Password </td><td><input type="password" name="password"></td></tr>
-<tr> <td></td><td><input type="submit" value="Login"></td></tr>
+<tr><td>Login ID </tr></td> <tr><td><input type="text" placeholder="Enter user name" name="userName"></tr></td>
+<tr><td>Password </tr></td> <tr><td><input type="password" placeholder="Enter pasword" name="password"></tr></td>
+
+ <tr><td></tr><td><input type="submit" value="create"></td></tr>
 
 </form>
 </table>

@@ -4,13 +4,13 @@ public class UserRole {
 
 	private String userName;
 	private String password;
-	private String rolecode;
+	private String roleCode;
 	
-	public UserRole(String username, String password, String rolecode) {
+	public UserRole(String userName, String password, String roleCode) {
 		super();
 		this.userName = userName;
 		this.password = password;
-		this.rolecode = rolecode;
+		this.roleCode = roleCode;
 	}
 
 	public UserRole() {
@@ -32,18 +32,19 @@ public class UserRole {
 		this.password = password;
 	}
 
-	public String getRolecode() {
-		return rolecode;
+	public String getRoleCode() {
+		return roleCode;
 	}
 
-	public void setRolecode(String rolecode) {
-		this.rolecode = rolecode;
+	public void setRoleCode(String roleCode) {
+		this.roleCode = roleCode;
 	}
 
 	@Override
 	public String toString() {
-		return "UserRole [userName=" + userName + ", password=" + password + ", rolecode=" + rolecode + "]";
+		return "UserRole [userName=" + userName + ", password=" + password + ", roleCode=" + roleCode + "]";
 	}
+
 	
 	
 }
