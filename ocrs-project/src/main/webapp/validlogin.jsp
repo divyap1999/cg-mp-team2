@@ -34,7 +34,7 @@ switch(roleCode){
 		document.getElementById('btnClaimAdjuster').disabled=false;
 		break;
 }
-<a href="profile.jsp">
+
 </script>
 </body>
 </html>
