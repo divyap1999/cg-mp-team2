@@ -2,6 +2,7 @@ package cg.ocrs.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,20 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cg.ocrs.model.Claim;
+import cg.ocrs.model.Policy;
 import cg.ocrs.service.ClaimServiceImpl;
 import cg.ocrs.service.IClaimService;
+import cg.ocrs.service.IPolicyService;
+import cg.ocrs.service.PolicyServiceImpl;
 
 
-@WebServlet({"/report","/createclaim"})
+@WebServlet({"/report","/createclaim","/viewpolicies"})
 
 public class ClaimReport extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-	IClaimService service;
+	IClaimService claimService;
+	IPolicyService policyService;
 	
 	public void init() throws ServletException {
 		try {
-			service = new ClaimServiceImpl();
+			claimService = new ClaimServiceImpl();
+			policyService = new PolicyServiceImpl();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,10 +61,21 @@ public class ClaimReport extends HttpServlet {
 			generateReport(request, response);
 	
 		}
-		
+
+		else if(uri.contains("/viewpolicies")) {
+			try {
+				viewAllPolicies(request,response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	
 		
 	}
+
+
+
 
 	private void generateReport(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	
@@ -65,7 +83,7 @@ public class ClaimReport extends HttpServlet {
 	
 		Claim claim = new Claim();
 		try {
-			claim = service.getClaimReport(claimNumber);
+			claim = claimService.getClaimReport(claimNumber);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,7 +111,7 @@ public class ClaimReport extends HttpServlet {
 		Claim claim = new Claim(claimNumber, claimReason, accidentLocationStreet, accidentCity, accidentState, accidentZip, claimType, policyNumber);
 		
 		try {
-			service.createClaim(claim);
+			claimService.createClaim(claim);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -106,6 +124,17 @@ public class ClaimReport extends HttpServlet {
 		response.sendRedirect("claim-report.jsp");
 		
 	}
+	
+	
+	private void viewAllPolicies(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		List<Policy> policies =policyService.getAllPolicies();
+		
+		HttpSession ssn=request.getSession();
+		ssn.setAttribute("policies", policies);
+		response.sendRedirect("viewall-policies.jsp");	
+	}
+
 
 	
 }
