@@ -274,3 +274,35 @@ insert into answers(questionid ,answerid ,answers,AnswerWeightage ) values(7,2,'
    insert into answers(questionid ,answerid ,answers,AnswerWeightage ) values(48,1,'10,000 to 30,000',200);
 
 
+
+-------------------------------------------------------------------------------------------------------------------------------
+   create table Policy(
+    PolicyNumber numeric(10) ,
+    PolicyPremium decimal(8,3),
+    AccountNumber numeric(10),
+    primary key (PolicyNumber)
+   );
+
+Table created.
+
+ desc Policy;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ POLICYNUMBER                              NOT NULL NUMBER(10)
+ POLICYPREMIUM                                      NUMBER(8,3)
+ ACCOUNTNUMBER                                      NUMBER(10)
+
+insert into Policy values(200,50000,100452686);
+insert into Policy values(201,45960,100452645);
+insert into Policy values(202,12480,100452423);
+insert into Policy values(203,25125,100452125);
+
+
+POLICYNUMBER POLICYPREMIUM ACCOUNTNUMBER
+------------ ------------- -------------
+         200         50000     100452686
+         201         45960     100452645
+         202         12480     100452423
+         203         25125     100452125
+
+
