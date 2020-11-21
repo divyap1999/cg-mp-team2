@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectionUtil {
 	static Connection connection;
-	public static Connection createConnection() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe",
 											"system","Gayathri");
 		return connection;
