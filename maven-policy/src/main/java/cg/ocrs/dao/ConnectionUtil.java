@@ -9,6 +9,11 @@ public class ConnectionUtil {
 	 static Connection con;
 	 public static Connection getConnection() throws SQLException {
 		 con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe","system","1234");
-		 return con;
+	        if(con!=null) {
+	        	System.out.println("Connection Successfull");
+	        }
+		
+		return con;
 	 }
 }
+
