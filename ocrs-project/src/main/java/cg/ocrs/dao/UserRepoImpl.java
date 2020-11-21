@@ -35,7 +35,7 @@ public class UserRepoImpl implements IUserRepo{
 	}
 	
 	
-/*	public UserRole createUser(UserRole user) throws SQLException{
+	public UserRole createUser(UserRole user) throws SQLException{
 		psmt=connection.prepareStatement("insert into login_page values(?,?,?)");
 		
 		psmt.setString(1, user.getUserName());
@@ -45,20 +45,20 @@ public class UserRepoImpl implements IUserRepo{
 		psmt.executeUpdate();
 		
 		return user;
-	}*/
+	}
 	
 	public UserRole getUserByUserName(String userName) throws SQLException {
-		psmt=connection.prepareStatement("select * from login_page where userName=? and password=?");
+		psmt=connection.prepareStatement("select * from login_page where userName=?");
 		psmt.setString(1, userName);
 		userResultSet=psmt.executeQuery();
 		if(!userResultSet.next()) {
 			throw new UserNotFoundException("User with userName ["+userName+"] does not exist");
 		}
-		UserRole userrole=new UserRole();
-		userrole.setUserName(userResultSet.getString("userName"));
-		userrole.setPassword(userResultSet.getString("password"));
-		userrole.setRoleCode(userResultSet.getString("roleCode"));
-		return userrole;
+		UserRole user=new UserRole();
+		user.setUserName(userResultSet.getString("userName"));
+		user.setPassword(userResultSet.getString("password"));
+		user.setRoleCode(userResultSet.getString("roleCode"));
+		return user;
 	}
 
 
@@ -66,7 +66,7 @@ public class UserRepoImpl implements IUserRepo{
 
 		UserRole user = getUserByUserName(userName);
 		//Connection con = null;
-		psmt = connection.prepareStatement("delete from login_page where user=? and password=?");
+		psmt = connection.prepareStatement("delete from login_page where user=?");
 		psmt.setString(1, userName);
 		int isdeleted = psmt.executeUpdate();
 		
@@ -74,20 +74,5 @@ public class UserRepoImpl implements IUserRepo{
 		
 	}
 
-	public boolean validate(UserRole userrole) throws SQLException {
-		boolean status = false;
-		try {
-			psmt = connection.prepareStatement("select*from login_page where userName = ? and password = ?");
-			psmt.setString(1,userrole.getUserName());
-			psmt.setString(2, userrole.getPassword());
-			System.out.println(psmt);
-			ResultSet rs=psmt.executeQuery();
-			status=rs.next();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return status;
-	}
-
+	
 }

@@ -1,6 +1,7 @@
 package cg.ocrs.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,27 +20,38 @@ import cg.ocrs.service.UserServiceImpl;
 public class UserRoleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	//IUser service;
+	IUser service;
 	
 	@Override
 	public void init(){
-		IUser service=new UserServiceImpl();
+		service=new UserServiceImpl();
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
+		boolean isValid = true;
+		try {
+			isValid = service.getUser(userName, password);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		
-		if(userName.equals(userName) && password.equals(password)) {
-		HttpSession session=request.getSession();
-		session.setAttribute("login", userName);
-		response.sendRedirect("validlogin.jsp");
-		}
-		else {
-			response.sendRedirect("login.jsp");
-		}
+			if(isValid == true) {
+				UserRole user = new UserRole();
+				try {
+					user = service.getUserRole(userName, password);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			HttpSession session=request.getSession();
+			session.setAttribute("login", user);
+			response.sendRedirect("validlogin.jsp");
+			}else {
+				response.sendRedirect("login.jsp");
+			}
+		
 	}
-	
 	
 }

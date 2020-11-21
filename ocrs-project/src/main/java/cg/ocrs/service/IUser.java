@@ -8,7 +8,9 @@ public interface IUser {
 
 	public UserRole addUser(UserRole user) throws SQLException;
 	
-	public UserRole getUser(String userName) throws SQLException;
+	public boolean getUser(String userName, String password) throws SQLException;
+	
+	public UserRole getUserRole(String userName, String password) throws SQLException;
 	
 	public boolean deleteUser(String userName)throws SQLException;
 }

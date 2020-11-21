@@ -20,16 +20,29 @@ public class UserServiceImpl implements IUser{
 		return repo.addUser(user);
 	}
 
-	@Override
-	public UserRole getUser(String userName) throws SQLException {
+	public boolean getUser(String userName, String password) throws SQLException {
 		
-		return repo.getUserByUserName(userName);
+		UserRole user = repo.getUserByUserName(userName);
+		if(user.getPassword().equals(password)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 
 	@Override
 	public boolean deleteUser(String userName) throws SQLException {
 		
 		return repo.deleteUser(userName);
+	}
+
+
+	@Override
+	public UserRole getUserRole(String userName, String password) throws SQLException {
+		
+		return repo.getUserByUserName(userName);
 	}
 
 }
