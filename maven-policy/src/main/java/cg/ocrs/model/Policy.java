@@ -2,16 +2,16 @@ package cg.ocrs.model;
 
 public class Policy {
 
-	private int policyNumber;
+	private long policyNumber;
 	private float policyPremium;
-	private int accountNumber;
+	public int accountNumber;
 	
 	
-	public int getPolicyNumber() {
+	public long getPolicyNumber() {
 		return policyNumber;
 	}
-	public void setPolicyNumber(int policyNumber) {
-		this.policyNumber = policyNumber;
+	public void setPolicyNumber(long l) {
+		this.policyNumber = l;
 	}
 	public float getPolicyPremium() {
 		return policyPremium;

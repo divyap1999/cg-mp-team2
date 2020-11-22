@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ViewPolicies</servlet-name>
+  	<display-name>ViewPolicies</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.ViewPolicies</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ViewPolicies</servlet-name>
+  	<url-pattern>/ViewPolicies</url-pattern>
+  </servlet-mapping>
 </web-app>

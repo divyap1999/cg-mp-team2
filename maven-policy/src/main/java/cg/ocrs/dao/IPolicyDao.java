@@ -5,4 +5,6 @@ import java.util.List;
 import cg.ocrs.model.Policy;
 public interface IPolicyDao {
      public List<Policy> getAllPolicies() throws SQLException;
+
+	Policy addPolicy(Policy policy) throws SQLException;
 }
