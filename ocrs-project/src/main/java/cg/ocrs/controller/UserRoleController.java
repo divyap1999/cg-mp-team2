@@ -35,7 +35,6 @@ public class UserRoleController extends HttpServlet {
 		try {
 			isValid = service.getUser(userName, password);
 		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
@@ -44,12 +43,13 @@ public class UserRoleController extends HttpServlet {
 				try {
 					user = service.getUserRole(userName, password);
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			HttpSession session=request.getSession();
 			session.setAttribute("login", user);
 			response.sendRedirect("validlogin.jsp");
+			}else {
+				response.sendRedirect("login.jsp");
 			}
 		
 	}
