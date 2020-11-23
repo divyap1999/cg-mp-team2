@@ -112,6 +112,68 @@ public class Claim {
 		this.policyNumber = policyNumber;
 	}
 
+	
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((accidentCity == null) ? 0 : accidentCity.hashCode());
+		result = prime * result + ((accidentLocationStreet == null) ? 0 : accidentLocationStreet.hashCode());
+		result = prime * result + ((accidentState == null) ? 0 : accidentState.hashCode());
+		result = prime * result + accidentZip;
+		result = prime * result + claimNumber;
+		result = prime * result + ((claimReason == null) ? 0 : claimReason.hashCode());
+		result = prime * result + ((claimType == null) ? 0 : claimType.hashCode());
+		result = prime * result + policyNumber;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Claim other = (Claim) obj;
+		if (accidentCity == null) {
+			if (other.accidentCity != null)
+				return false;
+		} else if (!accidentCity.equals(other.accidentCity))
+			return false;
+		if (accidentLocationStreet == null) {
+			if (other.accidentLocationStreet != null)
+				return false;
+		} else if (!accidentLocationStreet.equals(other.accidentLocationStreet))
+			return false;
+		if (accidentState == null) {
+			if (other.accidentState != null)
+				return false;
+		} else if (!accidentState.equals(other.accidentState))
+			return false;
+		if (accidentZip != other.accidentZip)
+			return false;
+		if (claimNumber != other.claimNumber)
+			return false;
+		if (claimReason == null) {
+			if (other.claimReason != null)
+				return false;
+		} else if (!claimReason.equals(other.claimReason))
+			return false;
+		if (claimType == null) {
+			if (other.claimType != null)
+				return false;
+		} else if (!claimType.equals(other.claimType))
+			return false;
+		if (policyNumber != other.policyNumber)
+			return false;
+		return true;
+	}
+
 
 	@Override
 	public String toString() {

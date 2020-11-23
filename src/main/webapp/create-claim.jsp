@@ -7,21 +7,25 @@
 <title>Create Claim</title>
 </head>
 <body>
+<center>
+<br><br><br>
+<h2>Create Claim..</h2>
 <form action="createclaim" method="post">
-
+<br>
 Enter Claim Number : <input type="text" name="claimNumber"> <br>
 Enter Claim Reason : <input type="text" name="claimReason"> <br>
 Enter Accident Location Street : <input type="text" name="accidentLocationStreet"> <br>
 Enter Accident City: <input type="text" name="accidentCity"> <br>
 Enter Accident State: <input type="text" name="accidentState"> <br>
 Enter Accident Zipcode: <input type="text" name="accidentZip"> <br>
-Enter Claim Type: <input type="text" name="claimType">
+Enter Claim Type: <input type="text" name="claimType"> <br>
 Enter Policy Number: <input type="text" name="policyNumber">
 
-<br>
+<br><br><br>
+
 <button type="submit">Submit</button>
 
 </form>
-
+</center>
 </body>
 </html>
