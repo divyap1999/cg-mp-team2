@@ -3,6 +3,9 @@ package cg.ocrs.controller;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Logger;
+
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,6 +26,9 @@ import cg.ocrs.service.PolicyServiceImpl;
 @WebServlet({"/report","/createclaim","/viewpolicies"})
 
 public class ClaimReport extends HttpServlet {
+	
+	static Logger myLogger =  Logger.getLogger(ClaimReport.class.getName());
+
 	private static final long serialVersionUID = 1L;
    
 	IClaimService claimService;
@@ -118,9 +124,10 @@ public class ClaimReport extends HttpServlet {
 		
 //		RequestDispatcher rd = request.getRequestDispatcher("claim-report.jsp");
 //		rd.forward(request, response);
-		
+		myLogger.info("Claim is Created..");
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("claim", claim);
+		myLogger.info("Claim Report is directed to cliam-report.jsp page");
 		response.sendRedirect("claim-report.jsp");
 		
 	}
@@ -130,8 +137,13 @@ public class ClaimReport extends HttpServlet {
 		
 		List<Policy> policies =policyService.getAllPolicies();
 		
+		if (policies.isEmpty()) {
+			myLogger.info("Empty list is returned");
+		}
+		
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("policies", policies);
+		myLogger.info("To View Policies, it is directed to cliam-report.jsp page");
 		response.sendRedirect("viewall-policies.jsp");	
 	}
 
