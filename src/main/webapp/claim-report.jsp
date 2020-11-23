@@ -7,10 +7,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Claim Report</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="col-12">
 </div>
 <table class="table">
 	<tr>
@@ -27,6 +32,7 @@
 	
 <% Claim claim = (Claim)session.getAttribute("claim"); %>
 
+<tbody>
 	<tr>
 		<td><%=claim.getClaimNumber() %></td>
 		<td><%=claim.getClaimReason() %></td>
@@ -35,17 +41,16 @@
 		<td><%= claim.getAccidentState() %></td>
 		<td><%= claim.getAccidentZip() %></td>
 		<td><%= claim.getClaimType() %></td>
-		<td><%= claim.getPolicyNumber() %></td>
-		
-		
-		
+		<td><%= claim.getPolicyNumber() %></td>		
 	</tr>
+</tbody>
 	
 	
 		
 </table>
 	
-
+</div>
+</div>
 </div>
 
 
