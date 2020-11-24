@@ -327,3 +327,33 @@ insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2wei
 
 
 
+
+
+
+SQL> insert into login_page(user_name,password,role_code) values('Sravani','Sravani@1','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Raguvardhan','Raguva@12','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('charitha','Charitha@11','claim_handler');
+
+SQL> insert into login_page(user_name,password,role_code) values('Swathi','Swathi@88','claim_handler');
+
+SQL> insert into login_page(user_name,password,role_code) values('Deepak','Deepak@09','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Rahul','Rahull@12','claim_handler');
+
+SQL> insert into login_page(user_name,password,role_code) values('Priyanka','priyaa@19','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Dinesh','Dinesh@2','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Akshitha','Akshitha@21','claim_handler');
+
+SQL> insert into login_page(user_name,password,role_code) values('Harshitha','Harsh@52','claim_handler');
+
+SQL> insert into login_page(user_name,password,role_code) values('Dinesh1','Dinesh@2','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Swetha','Swethas@2','insured');
+
+SQL> insert into login_page(user_name,password,role_code) values('Mohith','Mohith@6','claim_handler');
+
+
