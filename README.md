@@ -306,3 +306,24 @@ POLICYNUMBER POLICYPREMIUM ACCOUNTNUMBER
          203         25125     100452125
 
 
+------------------------------------------------------------------------------------------------------
+ create table quesandans(claimtype  varchar2(50), questions varchar2(50),answer1 varchar2(50),a1weightage int,answer2 varchar2(50),a2weightage int,answer3 varchar2(50),a3weightage int);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Business Auto','Vehicle Type','Light',200,'Heavy',400,'Truck',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Business Auto','Vehicle Model Year','Less than 2000',200,'2001 to 2010',400,'More than 2010',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Business Auto','Vehicle Model ','High Segment',200,'Mid Segment',400,'Economy',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Business Auto','Service Center ','Authorized',200,'Non Authorized',400,'',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Restaurant','Restaurant Type','Only Dining',200,'Dining with Bar',400,'Dining with Bar and Entertainment',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Restaurant','Restaurant Sq.ft','Less than 1500 sq.ft',200,'from 1500 to 5000 sq.ft',400,'more than 5000 sq.ft',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Restaurant','Number of Sprinklers','Upto 20 ',200,'21 to 40',400,'more than 40 ',600);
+  insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Restaurant','Number of  Cylinders in Kitchen','Upto  5 ',200,'6 to 15',400,'more than 15 ',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Apartment','Apartment  Sq.ft','upto 1500 sq.ft',200,'from 1500 to 5000 sq.ft',400,'more than 5000 sq.ft',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Apartment','Number of Sprinklers','upto 5',200,'from 6 to 10',400,'more than 10 ',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Apartment','Build Year','before 2000',200,'2000 to 2010',400,'after 2010',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('Apartment','Property Damage',' upto 5,00,000',200,'5,00,001 to 10,00,000',400,'more than 10,00,000',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('General Merchant','Bussiness Type','General Store',200,'Hardware',400,'Clothing',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('General Merchant','Asset Value',' Less than 10,00,000',200,'10,00,001 to 25,00,001',400,'More than 25,00,001',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('General Merchant','Inflammable Objects','Yes',200,' No',400,' ',600);
+insert into quesandans(claimtype, questions,answer1 ,a1weightage ,answer2 ,a2weightage ,answer3 ,a3weightage) values('General Merchant','Property Size','Less than 5,000 sq.ft',200,'5,000 to 10,000 sq.ft ',400,'More than 10,000 sq.ft ',600);
+
+
+
