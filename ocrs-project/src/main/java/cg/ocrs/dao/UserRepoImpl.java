@@ -1,7 +1,7 @@
 package cg.ocrs.dao;
 
-import java.sql.Connection;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,38 +9,55 @@ import java.sql.SQLException;
 import cg.ocrs.exception.UserNotFoundException;
 import cg.ocrs.model.UserRole;
 
-public abstract class UserRepoImpl implements IUserRepo{
+public class UserRepoImpl implements IUserRepo{
 	PreparedStatement psmt;
 	ResultSet userResultSet;
 	Connection connection;
-	private Connection con;
+	//private Connection con;
 
-	public UserRepoImpl() throws SQLException {
-		connection=ConnectionUtil.createConnection();
+	public UserRepoImpl()  {
+		try {
+			connection=ConnectionUtil.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+	
 	public UserRole addUser(UserRole user) throws SQLException {
 		psmt=connection.prepareStatement("insert into login_page values(?,?,?)");
 		psmt.setString(1, user.getUserName());
 		psmt.setString(2, user.getPassword());
-		psmt.setString(3, user.getRolecode());
+		psmt.setString(3, user.getRoleCode());
 		
 		int count=psmt.executeUpdate();
 		return user;
 	}
 	
-	@Override
+	
+	public UserRole createUser(UserRole user) throws SQLException{
+		psmt=connection.prepareStatement("insert into login_page values(?,?,?)");
+		
+		psmt.setString(1, user.getUserName());
+		psmt.setString(2, user.getPassword());
+		psmt.setString(3, user.getRoleCode());
+				
+		psmt.executeUpdate();
+		
+		return user;
+	}
+	
 	public UserRole getUserByUserName(String userName) throws SQLException {
-		psmt=connection.prepareStatement("select * from login_page where username=?");
+		psmt=connection.prepareStatement("select * from login_page where userName=?");
 		psmt.setString(1, userName);
 		userResultSet=psmt.executeQuery();
 		if(!userResultSet.next()) {
-			throw new UserNotFoundException("User with username ["+userName+"] does not exist");
+			throw new UserNotFoundException("User with userName ["+userName+"] does not exist");
 		}
 		UserRole user=new UserRole();
-		user.setUserName(userResultSet.getString("username"));
+		user.setUserName(userResultSet.getString("userName"));
 		user.setPassword(userResultSet.getString("password"));
-		user.setRolecode(userResultSet.getString("role_code"));
+		user.setRoleCode(userResultSet.getString("roleCode"));
 		return user;
 	}
 
@@ -48,8 +65,8 @@ public abstract class UserRepoImpl implements IUserRepo{
 	public boolean deleteUser(String userName) throws SQLException {
 
 		UserRole user = getUserByUserName(userName);
-	//	Connection con = null;
-		psmt = con.prepareStatement("delete from login_page where user=?");
+		//Connection con = null;
+		psmt = connection.prepareStatement("delete from login_page where user=?");
 		psmt.setString(1, userName);
 		int isdeleted = psmt.executeUpdate();
 		
@@ -57,4 +74,5 @@ public abstract class UserRepoImpl implements IUserRepo{
 		
 	}
 
+	
 }
