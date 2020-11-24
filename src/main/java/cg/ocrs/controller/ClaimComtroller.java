@@ -23,21 +23,19 @@ import cg.ocrs.service.IPolicyService;
 import cg.ocrs.service.PolicyServiceImpl;
 
 
-@WebServlet({"/report","/createclaim","/viewpolicies"})
+@WebServlet({"/report","/createclaim"})
 
-public class ClaimReport extends HttpServlet {
+public class ClaimComtroller extends HttpServlet {
 	
-	static Logger myLogger =  Logger.getLogger(ClaimReport.class.getName());
+	static Logger myLogger =  Logger.getLogger(ClaimComtroller.class.getName());
 
 	private static final long serialVersionUID = 1L;
    
 	IClaimService claimService;
-	IPolicyService policyService;
 	
 	public void init() throws ServletException {
 		try {
 			claimService = new ClaimServiceImpl();
-			policyService = new PolicyServiceImpl();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -67,16 +65,6 @@ public class ClaimReport extends HttpServlet {
 			generateReport(request, response);
 	
 		}
-
-		else if(uri.contains("/viewpolicies")) {
-			try {
-				viewAllPolicies(request,response);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	
 		
 	}
 
@@ -127,26 +115,9 @@ public class ClaimReport extends HttpServlet {
 		myLogger.info("Claim is Created..");
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("claim", claim);
-		myLogger.info("Claim Report is directed to cliam-report.jsp page");
-		response.sendRedirect("claim-report.jsp");
+		myLogger.info("Claim Report is directed to getQuestions.jsp page");
+		response.sendRedirect("getQuestions.jsp");
 		
 	}
-	
-	
-	private void viewAllPolicies(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
-		
-		List<Policy> policies =policyService.getAllPolicies();
-		
-		if (policies.isEmpty()) {
-			myLogger.info("Empty list is returned");
-		}
-		
-		HttpSession ssn=request.getSession();
-		ssn.setAttribute("policies", policies);
-		myLogger.info("To View Policies, it is directed to cliam-report.jsp page");
-		response.sendRedirect("viewall-policies.jsp");	
-	}
-
-
 	
 }

@@ -8,8 +8,13 @@
 </head>
 <body>
 <center>
+<jsp:include page="navbar.jsp"></jsp:include>
+
 <br><br><br>
-<h2>Create Claim..</h2>
+
+<h3>Create Claim..</h3>
+
+
 <form action="createclaim" method="post">
 <br>
 Enter Claim Number : <input type="text" name="claimNumber"> <br>

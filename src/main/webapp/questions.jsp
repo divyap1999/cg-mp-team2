@@ -1,11 +1,10 @@
 <%@page import="java.util.List"%>
-<%@page import="cg.ocrs.model.Policy"%>
+ <%@page import="cg.ocrs.model.Questions"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-
 <!DOCTYPE html>
-
-
+ 
+<html>
 <head>
 
 <meta charset="ISO-8859-1">
@@ -19,35 +18,32 @@
 
 <div class="container">
 
-<div class="row">
+ <div class="row"> 
 
 <div class="col-12">
-
 <div class="col-12">
 
-</div>
-
+ </div>
+<form>
 <table class="table">
 	<tr>
-		<th>Policy Number</th>
-		<th>Policy Premium</th>
-		<th>Account Number</th>
+		<th>Question</th>
+		<th>Answer 1</th>
+		<th>Answer 2</th>
 	</tr>
 
-
-	<tbody> 
+<tbody> 
 			
 			
- 			<% List<Policy> policy_list = (List)session.getAttribute("policies"); %>
+ 			<% List<Questions> ques_list = (List)session.getAttribute("questions"); %>
  
 			<% 
-				for (Policy policy : policy_list) { 
+ 				for (Questions ques : ques_list) { 
 			%> 
-			<tr> 
-				<td><%=policy.getPolicyNumber()%></td> 
-				<td><%=policy.getPolicyPremium()%></td> 
-				<td><%=policy.getAccountNumber()%></td> 
-			</tr> 
+	
+			<tr>  
+				<td><%=ques.getQuestion()%></td>  
+			</tr>  
 			<% 
 				} 
 			%> 
@@ -56,7 +52,9 @@
 
 </table>
 	
-
+	 		<button type="submit">Get Report</button>
+	
+</form>
 </div>
 </div>
 </div>

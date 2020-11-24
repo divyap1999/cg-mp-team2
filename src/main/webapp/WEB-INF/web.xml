@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>cg.ocrs.controller.UserRoleController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PolicyController</servlet-name>
+  	<display-name>PolicyController</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.PolicyController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>QuestionController</servlet-name>
+  	<display-name>QuestionController</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.QuestionController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/Test</url-pattern>
@@ -33,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>UserRoleController</servlet-name>
   	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PolicyController</servlet-name>
+  	<url-pattern>/view-policies</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QuestionController</servlet-name>
+  	<url-pattern>/questions</url-pattern>
   </servlet-mapping>
 </web-app>

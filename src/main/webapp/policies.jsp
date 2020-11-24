@@ -11,6 +11,8 @@
 </head>
 <body>
 <h2>Policies Available</h2>
+<jsp:include page="navbar.jsp"></jsp:include>
+
 <form action="viewpolicies" method="get">
 
 

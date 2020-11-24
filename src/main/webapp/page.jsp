@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
+
 <head>
     <style type ="text/css" >
         .footer{ 
@@ -19,20 +22,11 @@
 
 </head>
 
+<jsp:include page="navbar.jsp"></jsp:include>
+
 <marquee behavior="scroll" direction="up" scrollamount="1">Welcome to the Claim Report Page</marquee>
 
- 
-<style>
-/*     body { */
-/* /*       background-image: url('2.jpg'); */ */
-/*       background-repeat: no-repeat; */
-/*       background-attachment: fixed; */
-/*       background-size: 100% 100%; */
-      
- 
-/* } */
   
-    </style>  
 
 
 <body>
@@ -43,7 +37,8 @@
 	
 	<form action="report" method="get">
 	
-		Enter Claim Number : <input type="text" name="claimNumber"> <br>
+		Enter Claim Number : <input type="text" name="claimNumber"> <br><br>
+		
 
  		<button type="submit">Get Report</button>
 
