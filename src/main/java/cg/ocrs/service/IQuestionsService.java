@@ -10,4 +10,5 @@ public interface IQuestionsService {
 	public List<Questions> getQuestionByClaimTypeId(int claimTypeId) throws SQLException;
 	public List<Questions> getAnswersbyQuesId(int questionId) throws SQLException;
 	public int getClaimIdbyClaimType(String claimType) throws SQLException;
+	public List<Questions> getQuestionsByClaimType(String claimType) throws SQLException;
 }

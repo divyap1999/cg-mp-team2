@@ -3,6 +3,8 @@ package cg.ocrs.service;
 import java.sql.SQLException;
 import cg.ocrs.dao.IUserRepo;
 import cg.ocrs.dao.UserRepoImpl;
+import cg.ocrs.exception.LoginNotMatchedException;
+import cg.ocrs.exception.UserNotFoundException;
 import cg.ocrs.model.UserRole;
 
 public class UserServiceImpl implements IUserService{
@@ -19,10 +21,11 @@ public class UserServiceImpl implements IUserService{
 		return repo.addUser(user);
 	}
 
-	public boolean getUser(String userName, String password) throws SQLException {
+	public boolean isValidUser(String userName, String password, String roleCode) throws SQLException {
+		
 		
 		UserRole user = repo.getUserByUserName(userName);
-		if(user.getPassword().equals(password)) {
+		if(user.getPassword().equals(password) && user.getRoleCode().equals(roleCode)) {
 			return true;
 		}
 		else {
@@ -30,7 +33,6 @@ public class UserServiceImpl implements IUserService{
 		}
 		
 	}
-
 
 	public boolean deleteUser(String userName) throws SQLException {
 		
@@ -43,6 +45,4 @@ public class UserServiceImpl implements IUserService{
 		return repo.getUserByUserName(userName);
 	}
 
-
-	
 }

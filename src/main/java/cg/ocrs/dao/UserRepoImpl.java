@@ -48,16 +48,16 @@ public class UserRepoImpl implements IUserRepo{
 	}
 	
 	public UserRole getUserByUserName(String userName) throws SQLException {
-		psmt=connection.prepareStatement("select * from login_page where userName=?");
+		psmt=connection.prepareStatement("select * from login_page where user_Name=?");
 		psmt.setString(1, userName);
 		userResultSet=psmt.executeQuery();
 		if(!userResultSet.next()) {
 			throw new UserNotFoundException("User with userName ["+userName+"] does not exist");
 		}
 		UserRole user=new UserRole();
-		user.setUserName(userResultSet.getString("userName"));
+		user.setUserName(userResultSet.getString("user_Name"));
 		user.setPassword(userResultSet.getString("password"));
-		user.setRoleCode(userResultSet.getString("roleCode"));
+		user.setRoleCode(userResultSet.getString("role_Code"));
 		return user;
 	}
 

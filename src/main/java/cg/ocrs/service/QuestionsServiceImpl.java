@@ -68,7 +68,7 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		
 			ans.setClaimType(rsquestions.getString("claimtype"));
 			ans.setQuestion(rsquestions.getString("question"));
-			ans.setAnswer(rsquestions.getString("answer"));
+			ans.setAnswer1(rsquestions.getString("answer"));
 		
 			answers.add(ans);
 		}
@@ -89,6 +89,42 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		
 		return ques.getClaimTypeId();
 	}
+
+	
+	
+	public List<Questions> getQuestionsByClaimType(String claimType) throws SQLException {
+		
+		psmt = con.prepareStatement("select * from quesandans where claimtype=?");
+		
+		psmt.setString(1, claimType);
+
+		rsquestions = psmt.executeQuery();
+		
+		List<Questions> questions = new ArrayList<Questions>();
+		
+		if(!rsquestions.next()) {
+			throw new ClaimTypeNotFoundException("User with questions Number ["+claimType+"] does not exist");
+		}
+		
+		while(rsquestions.next()) {
+			
+			Questions ques = new Questions();
+		
+			ques.setClaimType(rsquestions.getString("claimtype"));
+			ques.setQuestion(rsquestions.getString("questions"));
+			ques.setAnswer1(rsquestions.getString("answer1"));
+			ques.setA1weightage(rsquestions.getInt("a1weightage"));
+			ques.setAnswer2(rsquestions.getString("answer2"));
+			ques.setA2weightage(rsquestions.getInt("a2weightage"));
+			ques.setAnswer3(rsquestions.getString("answer3"));
+			ques.setA3weightage(rsquestions.getInt("a3weightage"));
+			
+			questions.add(ques);
+		}
+		return questions;
+	}
+	
+	
 	
 	
 }

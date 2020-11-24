@@ -13,12 +13,12 @@
 <nav class="navbar navbar-inverse">
   
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="validlogin.jsp">Home</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="http://localhost:8066/maven-ocrs/create-claim.jsp">Create Claim</a></li>
-      <li><a href="http://localhost:8066/maven-ocrs/page.jsp">Get Claim Report</a></li>
-      <li><a href="http://localhost:8066/maven-ocrs/viewall-policies.jsp">Get all Policies</a></li>
+      <li><a href="create-claim.jsp">Create Claim</a></li>
+      <li><a href="page.jsp">Get Claim Report</a></li>
+      <li><a href="policies.jsp">Get all Policies</a></li>
     </ul>
 
 </nav>

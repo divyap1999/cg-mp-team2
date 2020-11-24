@@ -67,11 +67,8 @@ public class QuestionController extends HttpServlet {
  	private void viewQuestions(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
 		
  		String  claimType = request.getParameter("claimType");
- 		
- 		int claimTypeId = questionsService.getClaimIdbyClaimType(claimType); 
- 		
- 		
- 		List<Questions> questions = questionsService.getQuestionByClaimTypeId(claimTypeId);
+ 				
+ 		List<Questions> questions = questionsService.getQuestionsByClaimType(claimType);
 		
 		if (questions.isEmpty()) {
 			myLogger.info("Empty list is returned");
@@ -84,9 +81,17 @@ public class QuestionController extends HttpServlet {
 	}
 
  	
- 	private void claimReportWithQuestions(HttpServletRequest request, HttpServletResponse response)  {
+ 	private void claimReportWithQuestions(HttpServletRequest request, HttpServletResponse response) throws IOException  {
 		
- 		
+// 		Questions ques = new Questions();
+//
+// 		String claimtype = ques.getClaimType();
+// 		String questions = ques.getQuestion();
+// 		
+// 		String answer =  request.getParameter("answer1");
+//		
+
+ 		response.sendRedirect("claim-report.jsp");
 		
 	}
 

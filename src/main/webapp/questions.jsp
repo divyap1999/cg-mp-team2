@@ -29,22 +29,42 @@
 	<tr>
 		<th>Question</th>
 		<th>Answer 1</th>
+		<th>Weightage</th>
 		<th>Answer 2</th>
+		<th>Weightage</th>
+		<th>Answer 3</th>
+		<th>Weightage</th>
+		
 	</tr>
 
 <tbody> 
-			
+	
 			
  			<% List<Questions> ques_list = (List)session.getAttribute("questions"); %>
  
 			<% 
- 				for (Questions ques : ques_list) { 
+ 				int index = 0;
+				for (Questions ques : ques_list) { 
 			%> 
 	
 			<tr>  
-				<td><%=ques.getQuestion()%></td>  
+				<td><%=ques.getQuestion()%></td>
+				<td><%=ques.getAnswer1()%>
+				<input type="radio" value="answer1"  name=<%=index%>>
+				<td><%=ques.getA1weightage()%>
+				<td><%=ques.getAnswer2()%>
+				<input type="radio" value="answer2" name=<%=index%>>
+				<td><%=ques.getA2weightage()%>
+				<td><%=ques.getAnswer3()%>
+				<input type="radio" value="answer3"  name=<%=index%>>
+				<td><%=ques.getA3weightage()%>
+				
+				</td>
+				
 			</tr>  
+			
 			<% 
+				index = index+1;
 				} 
 			%> 
 	</tbody> 
@@ -52,7 +72,7 @@
 
 </table>
 	
-	 		<button type="submit">Get Report</button>
+	 	<button type="submit" action="/claimreport-ques" method = "post">Get Report</button>
 	
 </form>
 </div>
