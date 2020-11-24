@@ -1,39 +1,53 @@
+<%@page import="cg.ocrs.model.UserRole"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
+
 <title>After a valid Login</title>
 </head>
 <body>
 <%
-if(session.getAttribute("login")==null){
-	response.sendRedirect("login.jsp");
-}
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 %>
 <a href="logout">Logout</a>
 
-<button name="action" id="btnInsured" disabled>Insured</button>
-<button name="action" id="btnClaimHandler" disabled>Claim Handler</button>
-<button name="action" id="btnClaimAdjuster" disabled>Claim Adjuster</button>
+<%
+String roleCode=(String)session.getAttribute("roleCode");
+%>
+<div class="container">
+<button id=btnCreateClaim disabled>Create Claim</button>
+<button id="btnViewClaim" disabled>View Claim</button>
+<button id="btnCreateUser" disabled>Create User</button>
+<button id="btnGenerateReport" disabled>Generate Report</button>
+</div>
 
-</body>
 
 <script type="text/javascript">
-var roleCode='${roleCode}';
+
+
+var roleCode= '<%= roleCode%>' ;
+
 switch(roleCode){
 	case 'Insured':
-		document.getElementById('btnInsured').disabled=false;
+		document.getElementById('btnCreateClaim').disabled=false;
+		document.getElementById('btnViewClaim').disabled=false;
 		break;
 	case 'Claim Handler':
-		document.getElementById('btnClaimHandler').disabled=false;
+		document.getElementById('btnCreateClaim').disabled=false;
+		document.getElementById('btnViewClaim').disabled=false;
 		break;
 	case 'Claim Adjuster':
-		document.getElementById('btnClaimAdjuster').disabled=false;
+		document.getElementById('btnCreateClaim').disabled=false;
+		document.getElementById('btnViewClaim').disabled=false;
+		document.getElementById('btnCreateUser').disabled=false;
+		document.getElementById('btnGenerateReport').disabled=false;
 		break;
 }
+
 
 </script>
 </body>

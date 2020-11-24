@@ -34,6 +34,8 @@ public class UserRoleController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userName=request.getParameter("userName");
 		String password=request.getParameter("password");
+		String roleCode=request.getParameter("roleCode");
+		
 		boolean isValid = true;
 		try {
 			isValid = service.getUser(userName, password);
@@ -41,20 +43,52 @@ public class UserRoleController extends HttpServlet {
 			e1.printStackTrace();
 		}
 		
-			if(isValid == true) {
-				UserRole user = new UserRole();
-				try {
-					user = service.getUserRole(userName, password);
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			HttpSession session=request.getSession();
-			session.setAttribute("login", user);
-			logger.info("If Credentials are valid, directed to validlogin.jsp screen");
+		//UserRole user = new UserRole();
+		//String roleCode=user.getRoleCode();
+		
+		HttpSession session=request.getSession();
+		if(isValid) {
+			//session.setAttribute("login", userName);
+			session.setAttribute("roleCode", roleCode);
 			response.sendRedirect("validlogin.jsp");
-			}else {
-				response.sendRedirect("login.jsp");
-			}
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//			if(isValid == true) {
+//				//UserRole user = new UserRole();
+//				try {
+//					user = service.getUserRole(userName, password);
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			
+//				
+//				
+//				
+//				logger.info("If Credentials are valid, directed to validlogin.jsp screen");
+//				if(isValid) {
+//					session.setAttribute("login", userName);
+//					session.setAttribute("roleCode", roleCode);
+//					response.sendRedirect("validlogin.jsp");
+//				}	
+//			
+//			
+//			}else {
+//				logger.info("Page will be directed to login.jsp");
+//				response.sendRedirect("login.jsp");
+//			}
+//			
+			
 		}
 	
 }
