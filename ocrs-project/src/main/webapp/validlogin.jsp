@@ -15,9 +15,9 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 %>
 <a href="logout">Logout</a>
 
-<button id="btnInsured" disabled>Insured</button>
-<button id="btnClaimHandler" disabled>Claim Handler</button>
-<button id="btnClaimAdjuster" disabled>Claim Adjuster</button>
+<button name="action" id="btnInsured" disabled>Insured</button>
+<button name="action" id="btnClaimHandler" disabled>Claim Handler</button>
+<button name="action" id="btnClaimAdjuster" disabled>Claim Adjuster</button>
 
 </body>
 
@@ -25,16 +25,16 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 var roleCode='${roleCode}';
 switch(roleCode){
 	case 'Insured':
-		document.getElementById('btnInsured').disabled=true;
+		document.getElementById('btnInsured').disabled=false;
 		break;
 	case 'Claim Handler':
-		document.getElementById('btnClaimHandler').disabled=true;
+		document.getElementById('btnClaimHandler').disabled=false;
 		break;
 	case 'Claim Adjuster':
 		document.getElementById('btnClaimAdjuster').disabled=false;
 		break;
 }
-<a href="profile.jsp">
+
 </script>
 </body>
 </html>

@@ -2,65 +2,57 @@ package cg.ocrs.model;
 
 public class PolicyDetails {
 	
-	private int PolicyNo;
-private int QuestionId;
-	
-	private String Answer;
-public PolicyDetails(int policyNo, int questionId, String answer) {
+	private int policyNo;
+    private String questionId;
+	private String answer;
+	public PolicyDetails(int policyNo, String questionId, String answer) {
 		super();
-		this.PolicyNo = policyNo;
-		QuestionId = questionId;
-		Answer = answer;
+		this.policyNo = policyNo;
+		this.questionId = questionId;
+		this.answer = answer;
 	}
-
-		
+	public PolicyDetails() {
+		// TODO Auto-generated constructor stub
+	}
+	public int getPolicyNo() {
+		return policyNo;
+	}
+	public void setPolicyNo(int policyNo) {
+		this.policyNo = policyNo;
+	}
+	public String getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	@Override
 	public String toString() {
-		return "PolicyDetails [policyNo=" + PolicyNo + ", QuestionId=" + QuestionId + ", Answer=" + Answer + "]";
-	}
-
-		
-	public int getPolicyNo() {
-		return PolicyNo;
-	}
-
-
-	public void setPolicyNo(int policyNo) {
-		this.PolicyNo = policyNo;
-	}
-
-
-	public int getQuestionId() {
-		return QuestionId;
-	}
-
-
-	public void setQuestionId(int questionId) {
-		QuestionId = questionId;
-	}
-
-
-	public String getAnswer() {
-		return Answer;
-	}
-
-
-	public void setAnswer(String answer) {
-		Answer = answer;
+		return "PolicyDetails [policyNo=" + policyNo + ", questionId=" + questionId + ", answer=" + answer + "]";
 	}
 
 
 
 
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		
+
+
+
+	
+	
+	
+
 
 
 		
 		
 	}
 
-}
+

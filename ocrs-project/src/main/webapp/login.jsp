@@ -13,7 +13,6 @@
 <form action="login" method="post">
 <tr><td>Login ID </tr></td> <tr><td><input type="text" placeholder="Enter user name" name="userName"></tr></td>
 <tr><td>Password </tr></td> <tr><td><input type="password" placeholder="Enter pasword" name="password"></tr></td>
-
  <tr><td></tr><td><input type="submit" value="create"></td></tr>
 
 </form>

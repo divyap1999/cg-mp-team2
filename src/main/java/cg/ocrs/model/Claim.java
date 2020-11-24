@@ -4,7 +4,7 @@ public class Claim {
 
 	private int claimNumber;
 	private String claimReason;
-	private String accidentLoactionStreet;
+	private String accidentLocationStreet;
 	private String accidentCity;
 	private String accidentState;
 	private int accidentZip;
@@ -12,21 +12,24 @@ public class Claim {
 	private int policyNumber;
 	
 	
-	public Claim() {
-		
-	}
+
 	
-	public Claim(int claimNumber, String claimReason, String accidentLoactionStreet, String accidentCity,
+	public Claim(int claimNumber, String claimReason, String accidentLocationStreet, String accidentCity,
 			String accidentState, int accidentZip, String claimType, int policyNumber) {
 		super();
 		this.claimNumber = claimNumber;
 		this.claimReason = claimReason;
-		this.accidentLoactionStreet = accidentLoactionStreet;
+		this.accidentLocationStreet = accidentLocationStreet;
 		this.accidentCity = accidentCity;
 		this.accidentState = accidentState;
 		this.accidentZip = accidentZip;
 		this.claimType = claimType;
 		this.policyNumber = policyNumber;
+	}
+
+
+	public Claim() {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -50,13 +53,13 @@ public class Claim {
 	}
 
 
-	public String getAccidentLoactionStreet() {
-		return accidentLoactionStreet;
+	public String getAccidentLocationStreet() {
+		return accidentLocationStreet;
 	}
 
 
-	public void setAccidentLoactionStreet(String accidentLoactionStreet) {
-		this.accidentLoactionStreet = accidentLoactionStreet;
+	public void setAccidentLocationStreet(String accidentLocationStreet) {
+		this.accidentLocationStreet = accidentLocationStreet;
 	}
 
 
@@ -112,8 +115,8 @@ public class Claim {
 
 	@Override
 	public String toString() {
-		return "Claim [claimNumber=" + claimNumber + ", claimReason=" + claimReason + ", accidentLoactionStreet="
-				+ accidentLoactionStreet + ", accidentCity=" + accidentCity + ", accidentState=" + accidentState
+		return "Claim [claimNumber=" + claimNumber + ", claimReason=" + claimReason + ", accidentLocationStreet="
+				+ accidentLocationStreet + ", accidentCity=" + accidentCity + ", accidentState=" + accidentState
 				+ ", accidentZip=" + accidentZip + ", claimType=" + claimType + ", policyNumber=" + policyNumber + "]";
 	}
 	

@@ -1,16 +1,15 @@
 package cg.ocrs.service;
 
 import java.sql.SQLException;
-import cg.ocrs.dao.IUserRepo;
+
 import cg.ocrs.dao.UserRepoImpl;
 import cg.ocrs.model.UserRole;
 
-public class UserServiceImpl implements IUser{
-
-	IUserRepo repo;
+public class UserServiceImpl implements IUser {
+IUser repo;
 	
 	public UserServiceImpl()  {
-	 repo=new UserRepoImpl();
+	 repo=(IUser) new UserRepoImpl();
 	}
 	
 	
@@ -22,7 +21,7 @@ public class UserServiceImpl implements IUser{
 
 	public boolean getUser(String userName, String password) throws SQLException {
 		
-		UserRole user = repo.getUserByUserName(userName);
+		UserRole user = ((UserRepoImpl) repo).getUserByUserName(userName);
 		if(user.getPassword().equals(password)) {
 			return true;
 		}
@@ -42,7 +41,9 @@ public class UserServiceImpl implements IUser{
 	@Override
 	public UserRole getUserRole(String userName, String password) throws SQLException {
 		
-		return repo.getUserByUserName(userName);
+		return ((UserRepoImpl) repo).getUserByUserName(userName);
 	}
 
 }
+
+

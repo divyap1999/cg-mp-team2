@@ -1,19 +1,17 @@
 package cg.ocrs.dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import cg.ocrs.exception.UserNotFoundException;
 import cg.ocrs.model.UserRole;
+import exception.UserNotFoundException;
 
 public class UserRepoImpl implements IUserRepo{
 	PreparedStatement psmt;
 	ResultSet userResultSet;
 	Connection connection;
-	//private Connection con;
 
 	public UserRepoImpl()  {
 		try {
@@ -76,3 +74,6 @@ public class UserRepoImpl implements IUserRepo{
 
 	
 }
+
+
+
