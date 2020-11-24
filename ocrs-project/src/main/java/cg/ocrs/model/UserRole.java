@@ -13,8 +13,7 @@ public class UserRole {
 		this.roleCode = roleCode;
 	}
 
-	public UserRole() {
-		}
+	public UserRole() {}
 
 	public String getUserName() {
 		return userName;

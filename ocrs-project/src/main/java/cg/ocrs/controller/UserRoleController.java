@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sun.istack.logging.Logger;
+
 import cg.ocrs.dao.IUserRepo;
 import cg.ocrs.dao.UserRepoImpl;
 import cg.ocrs.model.UserRole;
@@ -18,6 +20,7 @@ import cg.ocrs.service.UserServiceImpl;
 
 @WebServlet("/login")
 public class UserRoleController extends HttpServlet {
+	static Logger logger=Logger.getLogger(UserRoleController.class);
 	private static final long serialVersionUID = 1L;
 	
 	IUser service;
@@ -47,15 +50,11 @@ public class UserRoleController extends HttpServlet {
 				}
 			HttpSession session=request.getSession();
 			session.setAttribute("login", user);
+			logger.info("If Credentials are valid, directed to validlogin.jsp screen");
 			response.sendRedirect("validlogin.jsp");
 			}else {
 				response.sendRedirect("login.jsp");
 			}
-			boolean roleCode=true;
-			if(roleCode) {
-				
-				response.sendRedirect("login.jsp");
-			}
-	}
+		}
 	
 }
