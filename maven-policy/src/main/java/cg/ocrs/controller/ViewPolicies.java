@@ -1,10 +1,8 @@
 package cg.ocrs.controller;
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,36 +10,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import cg.ocrs.dao.PolicyDaoImpl;
-import cg.ocrs.dao.IPolicyDao;
 import cg.ocrs.model.Policy;
 import cg.ocrs.service.IPolicyService;
 import cg.ocrs.service.PolicyServiceImpl;
+@WebServlet("/viewpolicies")
 
-@WebServlet({"/report","/view-all-policies"})
 public class ViewPolicies extends HttpServlet {
+	static Logger myLogger=Logger.getLogger(ViewPolicies.class.getName());
 	private static final long serialVersionUID = 1L;
-     
-	IPolicyDao service;
-
-	@Override
-	public void init(){
-	service=new PolicyDaoImpl();
-	}
-
-		protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-			List<Policy> allPolicies = null;
-		try {
-			allPolicies = service.getAllPolicies();
+	IPolicyService policyService;
+	public void init() throws ServletException {
+		try {	
+			policyService = new PolicyServiceImpl();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		HttpSession sn=request.getSession();
-		sn.setAttribute("policy",allPolicies);
-		response.sendRedirect("view-all-policies.jsp");
+	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String uri=request.getRequestURI();
+		
+		 if(uri.contains("/viewpolicies")) {
+			try {
+				viewAllPolicies(request,response);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-
+	}
+	private void viewAllPolicies(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		List<Policy> policies =policyService.getAllPolicies();
+		if(policies.isEmpty()) {
+			myLogger.info("Empty list is returned");
 		}
+		HttpSession ssn=request.getSession();
+		ssn.setAttribute("policies", policies);
+		myLogger.info("To view Policies, it is directed to claim-report.jsp page");
+		response.sendRedirect("view-all-policies.jsp");	
+	}	
+}

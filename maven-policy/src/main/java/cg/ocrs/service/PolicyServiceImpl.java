@@ -13,7 +13,10 @@ public class PolicyServiceImpl implements IPolicyService {
 		repo=new PolicyDaoImpl();
 		
 	}
-	@Override
+	public Policy addPolicy(Policy policy) throws SQLException {
+		return repo.addPolicy(policy);
+	}
+
 	public List<Policy> getAllPolicies() throws SQLException {
 		// TODO Auto-generated method stub
 		return repo.getAllPolicies();
