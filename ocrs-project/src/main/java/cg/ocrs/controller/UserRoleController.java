@@ -51,7 +51,11 @@ public class UserRoleController extends HttpServlet {
 			}else {
 				response.sendRedirect("login.jsp");
 			}
-		
+			boolean roleCode=true;
+			if(roleCode) {
+				
+				response.sendRedirect("login.jsp");
+			}
 	}
 	
 }
