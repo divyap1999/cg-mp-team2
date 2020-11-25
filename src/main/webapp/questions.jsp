@@ -1,5 +1,6 @@
 <%@page import="java.util.List"%>
  <%@page import="cg.ocrs.model.Questions"%>
+ 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
@@ -24,8 +25,22 @@
 <div class="col-12">
 
  </div>
-<form>
+
+<form action="claimreport-ques" method = "post">
+
+
 <table class="table">
+
+
+			<% String claimType = (String)session.getAttribute("claimType");
+			%>
+ 			<tr>
+				ClaimType: <td><input type="text" name="claimType" value="<%=claimType%>"></td>	
+				ClaimNumber:<td><input type="text" name="claimNumber" value="<%=session.getAttribute("claimNumber")%>"></td>				
+				<br>	
+			</tr>
+			
+	
 	<tr>
 		<th>Question</th>
 		<th>Answer 1</th>
@@ -47,34 +62,38 @@
 				for (Questions ques : ques_list) { 
 			%> 
 	
+			
+			
 			<tr>  
 				<td><%=ques.getQuestion()%></td>
 				<td><%=ques.getAnswer1()%>
-				<input type="radio" value="answer1"  name=<%=index%>>
+				<input type="radio" value="answer1"  name="<%=ques.getQuestion()%>">
 				<td><%=ques.getA1weightage()%>
 				<td><%=ques.getAnswer2()%>
-				<input type="radio" value="answer2" name=<%=index%>>
+				<input type="radio" value="answer2" name="<%=ques.getQuestion()%>">
 				<td><%=ques.getA2weightage()%>
 				<td><%=ques.getAnswer3()%>
-				<input type="radio" value="answer3"  name=<%=index%>>
-				<td><%=ques.getA3weightage()%>
-				
+				<input type="radio" value="answer3"  name="<%=ques.getQuestion()%>">
+				<td><%=ques.getA1weightage()%>
 				</td>
 				
 			</tr>  
 			
-			<% 
-				index = index+1;
-				} 
-			%> 
+			<%
+				}
+			%>
+			 
 	</tbody> 
 
-
+		
 </table>
-	
-	 	<button type="submit" action="/claimreport-ques" method = "post">Get Report</button>
-	
+
+<button type="submit">Get Report</button>
 </form>
+	
+	 	
+	
+
 </div>
 </div>
 </div>

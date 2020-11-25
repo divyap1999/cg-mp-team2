@@ -38,7 +38,7 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		List<Questions> questions = new ArrayList<Questions>();
 		
 		if(!rsquestions.next()) {
-			throw new ClaimTypeNotFoundException("User with questions Number ["+claimTypeId+"] does not exist");
+			throw new ClaimTypeNotFoundException("Question with Claim Type [\"+claimType+\"] does not exist");
 		}
 		while(rsquestions.next()) {
 			
@@ -60,7 +60,7 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		List<Questions> answers = new ArrayList<Questions>();
 		
 		if(!rsquestions.next()) {
-			throw new QuestionIdNotFoundException("User with questions Number ["+questionId+"] does not exist");
+			throw new QuestionIdNotFoundException("Question with Claim Type [\"+claimType+\"] does not exist");
 		}
 		while(rsquestions.next()) {
 			
@@ -81,12 +81,11 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		psmt.setString(1, claimType);
 		rsquestions = psmt.executeQuery();
 		if(!rsquestions.next()) {
-			throw new ClaimTypeNotFoundException("User with Claim Type ["+claimType+"] does not exist");
+			throw new ClaimTypeNotFoundException("Question with Claim Type [\"+claimType+\"] does not exist");
 		}
 		
 		Questions ques = new Questions();
 		ques.setClaimTypeId(rsquestions.getInt("claimtypeid"));
-		
 		return ques.getClaimTypeId();
 	}
 
@@ -103,7 +102,7 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		List<Questions> questions = new ArrayList<Questions>();
 		
 		if(!rsquestions.next()) {
-			throw new ClaimTypeNotFoundException("User with questions Number ["+claimType+"] does not exist");
+			throw new ClaimTypeNotFoundException("Question with Claim Type ["+claimType+"] does not exist");
 		}
 		
 		while(rsquestions.next()) {
@@ -123,9 +122,36 @@ public class QuestionsServiceImpl implements IQuestionsService{
 		}
 		return questions;
 	}
-	
-	
-	
+
+	public List<Questions> getAllQuestions() throws SQLException {
+		
+			psmt = con.prepareStatement("select * from quesandans");
+			
+			rsquestions = psmt.executeQuery();
+			
+			List<Questions> questions = new ArrayList<Questions>();
+			
+			if(!rsquestions.next()) {
+				throw new ClaimTypeNotFoundException("Questions does not exist");
+			}
+			
+			while(rsquestions.next()) {
+				
+				Questions ques = new Questions();
+			
+				ques.setClaimType(rsquestions.getString("claimtype"));
+				ques.setQuestion(rsquestions.getString("questions"));
+				ques.setAnswer1(rsquestions.getString("answer1"));
+				ques.setA1weightage(rsquestions.getInt("a1weightage"));
+				ques.setAnswer2(rsquestions.getString("answer2"));
+				ques.setA2weightage(rsquestions.getInt("a2weightage"));
+				ques.setAnswer3(rsquestions.getString("answer3"));
+				ques.setA3weightage(rsquestions.getInt("a3weightage"));
+				
+				questions.add(ques);
+			}
+			return questions;
+		}
 	
 }
 

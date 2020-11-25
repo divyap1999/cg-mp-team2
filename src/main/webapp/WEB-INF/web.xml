@@ -46,6 +46,12 @@
   	<description></description>
   	<servlet-class>cg.ocrs.controller.LoginController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>InsuredController</servlet-name>
+  	<display-name>InsuredController</display-name>
+  	<description></description>
+  	<servlet-class>cg.ocrs.controller.InsuredController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/Test</url-pattern>
@@ -73,5 +79,9 @@
   <servlet-mapping>
   	<servlet-name>LoginController</servlet-name>
   	<url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InsuredController</servlet-name>
+  	<url-pattern>/InsuredController</url-pattern>
   </servlet-mapping>
 </web-app>

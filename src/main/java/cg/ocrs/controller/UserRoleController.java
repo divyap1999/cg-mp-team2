@@ -47,6 +47,7 @@ public class UserRoleController extends HttpServlet {
 		HttpSession session=request.getSession();
 		if(isValid) {
 			session.setAttribute("roleCode", roleCode);
+			session.setAttribute("userName", userName);
 			response.sendRedirect("validlogin.jsp");
 
 		}

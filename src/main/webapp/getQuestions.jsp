@@ -1,5 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="cg.ocrs.model.Questions"%>
+<%@page import="cg.ocrs.model.Claim"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
 
@@ -14,14 +16,16 @@
 <jsp:include page="navbar.jsp"></jsp:include>
 
 <body>
-  
+  <%Claim claim = (Claim)session.getAttribute("claim"); %>
     <center>
 	<h3>Your Claim is under Process</h3>
 	<h4>Please Click below to Answer the Questions</h4>
 	
 	<form action="view-questions" method="get">
 	
-		Enter ClaimType : <input type="text" name="claimType"> <br><br>
+		Enter ClaimType : <td><input type="text" name="claimType" value="<%=claim.getClaimType() %>"></td>
+		ClaimNumber: <td><input type="text" name="claimNumber" value="<%=claim.getClaimNumber()%>"></td>	
+		 <br><br>		
 		
 
  		<button type="submit">Get Questions</button>

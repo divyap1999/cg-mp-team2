@@ -23,6 +23,8 @@ String roleCode=(String)session.getAttribute("roleCode");
 <button onclick="location.href='page.jsp'" id="btnViewClaim" disabled>View Claim</button>
 <button onclick="location.href='profile.jsp'" id="btnCreateUser" disabled>Create User</button>
 <button onclick="location.href='page.jsp'" id="btnGenerateReport" disabled>Generate Report</button>
+<button onclick="location.href='claim-handler.jsp'" id="btnClaimHandler" disabled>Get Insured</button>
+
 </div>
 
 
@@ -36,6 +38,8 @@ switch(roleCode){
 	case 'Claim Handler':
 		document.getElementById('btnCreateClaim').disabled=false;
 		document.getElementById('btnViewClaim').disabled=false;
+		document.getElementById('btnClaimHandler').disabled=false;
+
 		break;
 	case 'Claim Adjuster':
 		document.getElementById('btnCreateClaim').disabled=false;
