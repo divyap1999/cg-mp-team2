@@ -1,6 +1,7 @@
 package cg.ocrs.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -36,9 +37,11 @@ public class UserRoleController extends HttpServlet {
 		String password=request.getParameter("password");
 		String roleCode=request.getParameter("roleCode");
 		
+		//UserRole user=new UserRole(userName,password,roleCode);
 		boolean isValid = true;
 		try {
 			isValid = service.getUser(userName, password);
+			
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
@@ -48,47 +51,14 @@ public class UserRoleController extends HttpServlet {
 		
 		HttpSession session=request.getSession();
 		if(isValid) {
-			//session.setAttribute("login", userName);
+			//if(user.equals("Insured") || user.equals("Claim Handler") || user.equals("Claim Adjuster"))
 			session.setAttribute("roleCode", roleCode);
 			response.sendRedirect("validlogin.jsp");
-
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//			if(isValid == true) {
-//				//UserRole user = new UserRole();
-//				try {
-//					user = service.getUserRole(userName, password);
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
-//			
-//				
-//				
-//				
-//				logger.info("If Credentials are valid, directed to validlogin.jsp screen");
-//				if(isValid) {
-//					session.setAttribute("login", userName);
-//					session.setAttribute("roleCode", roleCode);
-//					response.sendRedirect("validlogin.jsp");
-//				}	
-//			
-//			
-//			}else {
-//				logger.info("Page will be directed to login.jsp");
-//				response.sendRedirect("login.jsp");
-//			}
-//			
+			
 			
 		}
+
+			
+	}
 	
 }

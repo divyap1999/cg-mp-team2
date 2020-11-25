@@ -14,7 +14,6 @@
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 %>
 <a href="logout">Logout</a>
-
 <%
 String roleCode=(String)session.getAttribute("roleCode");
 %>
