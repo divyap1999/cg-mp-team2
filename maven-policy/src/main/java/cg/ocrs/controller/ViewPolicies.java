@@ -44,8 +44,10 @@ public class ViewPolicies extends HttpServlet {
 		
 		List<Policy> policies =policyService.getAllPolicies();
 		if(policies.isEmpty()) {
-			myLogger.info("Empty list is returned");
+		 	myLogger.info("Empty list is returned");
+	        
 		}
+		
 		HttpSession ssn=request.getSession();
 		ssn.setAttribute("policies", policies);
 		myLogger.info("To view Policies, it is directed to claim-report.jsp page");

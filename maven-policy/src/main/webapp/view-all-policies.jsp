@@ -20,7 +20,9 @@
 		<th>Policy Number</th>
 		<th>Policy Premium</th>
 		<th>Account Number</th>
+		<th>Link to create claim</th>
 	</tr>
+	
 	<tbody> 			
  			<% List<Policy> policy_list = (List)session.getAttribute("policies"); %>
 			<% 
@@ -30,10 +32,12 @@
 				<td><%=policy.getPolicyNumber()%></td> 
 				<td><%=policy.getPolicyPremium()%></td> 
 				<td><%=policy.getAccountNumber()%></td> 
+			    <td><input type="submit" name="create claim" value="create claim"></td>
 			</tr> 
 			<% 
 				} 
 			%> 
+			
 	</tbody> 
 </table>
 </div>
