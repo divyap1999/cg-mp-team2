@@ -340,6 +340,17 @@ insert into login_page values('Gayathri', 'Gayathri@123', 'claim_adjuster');
 insert into login_page values('Divya', 'Divya@123', 'claim_adjuster');
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   create table insured(user_name varchar2(50),agent varchar2(10),password varchar2(20));
+   insert into insured(user_name,agent,password) values('Apple','Rahul','Apple@123');
+   insert into insured(user_name,agent,password) values('Samsung','Rahul','Samsung@123');
+   insert into insured(user_name,agent,password) values('Ramanuj','Rahul','Ramanuj@123');
+   insert into insured(user_name,agent,password) values('Sriram','Rohit','Sriram@123');
+   insert into insured(user_name,agent,password) values('Laxman','Rohit','Laxman@123');
+   insert into insured(user_name,agent,password) values('Divya','Saman','Divya@123');
+   insert into insured(user_name,agent,password) values('Kavitha','Saman','Kavitha@123');
+
+
 
 
 
